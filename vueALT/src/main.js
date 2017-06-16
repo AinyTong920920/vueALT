@@ -11,16 +11,16 @@ require('../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.
 require("../static/plugins/daterangepicker/daterangepicker.css")
 require('../static/plugins/datatables/dataTables.bootstrap.css')
 require('../static/plugins/pace/pace.css')
-require('../bower_components/iCheck/skins/flat/blue.css')
+require('../bower_components/iCheck/skins/square/blue.css')
 
 
 
 require('../bower_components/jquery/dist/jquery.js') 
 require("../bower_components/bootstrap/dist/js/bootstrap.min.js")
-// require('../bower_components/iCheck/icheck.js') 
+require('../bower_components/iCheck/icheck.js') 
 require('../static/plugins/pace/pace.js') 
-require('../static/plugins/datatables/dataTables.bootstrap.js') 
 require('../static/plugins/datatables/jquery.dataTables.js')
+require('../static/plugins/datatables/dataTables.bootstrap.js') 
 require('../static/dist/js/app.min.js')
 require('../static/plugins/jquery-validation/jquery.validate.min.js')
 require('../static/plugins/jquery-validation/messages_zh.js')

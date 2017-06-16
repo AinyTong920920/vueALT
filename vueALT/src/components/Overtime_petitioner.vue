@@ -9,16 +9,29 @@
                             <h3 class="box-title">加班申请</h3>
                         </div>
                         <div class="box-body">
-                            <div class="form-group">
-                                <label>Date:</label>
-                                <div class="input-group date">
-                                    <div class="input-group-addon"> <i class="fa fa-calendar"></i>
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <label>Date:</label>
+                                    <div class="input-group date">
+                                        <div class="input-group-addon"> <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right" name="daterangesingle">
                                     </div>
-                                    <input type="text" class="form-control pull-right"  name="daterangesingle"></div>
-                            </div>
-                            <div class="form-group"><label for="duration">时长（小时）</label> <div><input type="number" id="duration" name="duration" min="0" placeholder="duration" class="form-control"></div></div>
-                            <div class="form-group"><label>备注</label> <textarea rows="3" placeholder="请输入文字" class="form-control" style="resize: none;"></textarea></div>
-                            <div class="form-group"><button class="btn btn-primary pull-right">提交</button></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="duration">时长（小时）</label>
+                                    <div>
+                                        <input type="number" id="duration" name="duration" min="0" placeholder="duration" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>备注</label>
+                                    <textarea rows="3" placeholder="请输入文字" class="form-control" style="resize: none;"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary pull-right">提交</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -28,11 +41,11 @@
 </template>
 <script>
 import Contentheader from './Content_header'
-    export default{
-        name:'overtime_petitioner',
-        components:{
-            Contentheader
-        },
+export default {
+    name: 'overtime_petitioner',
+    components: {
+        Contentheader
+    },
     data() {
         return {
             menuList: [{
@@ -44,9 +57,9 @@ import Contentheader from './Content_header'
             }]
         }
     },
-    mounted(){
+    mounted() {
         this.plugin.getdatePicker();
     }
 
-    }
+}
 </script>

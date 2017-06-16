@@ -6,9 +6,6 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <div style="margin:10px 0;">
-                                <button class="btn btn-sm btn-primary">批量同意</button>
-                            </div>
                             <form action="" class="form-inline">
                                 <div class="form-group">
                                     <label>类别：</label>
@@ -19,22 +16,25 @@
                                         <option>已审批</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="">姓名：</label>
-                                    <input type="text" class="form-control" placeholder="姓名"></div>
+                                    <input type="text" class="form-control" placeholder="姓名"></div> -->
                                 <div class="input-group date">
                                     <div class="input-group-addon"> <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control pull-right"  name="daterangesingle"></div>
-                                <div class="form-group">
-                                    <button class="btn btn-primary ">搜索</button>
+                                    <input type="text" class="form-control pull-right" name="daterangesingle">
                                 </div>
+                                <!-- <div class="form-group">
+                                    <button class="btn btn-primary ">搜索</button>
+                                </div> -->
                             </form>
                         </div>
+                        
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th><input type="checkbox" id="ckAll" class="flat-blue" v-model="checked">{{ checked }}</th>
                                         <th>ID</th>
                                         <th>姓名</th>
                                         <th>日期</th>
@@ -44,6 +44,7 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="data in datalist">
+                                        <th><input type="checkbox" class="flat-blue"></th>
                                         <td>{{data.id}}</td>
                                         <td>{{data.name}}</td>
                                         <td>{{data.date}}</td>
@@ -55,9 +56,6 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot>
-                                    <tr></tr>
-                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -71,21 +69,18 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         <h4 class="modal-title" id="myModalLabel">请输入申请描述</h4>
                     </div>
-                    <div class="modal-body">
-
-                    </div>
+                    <div class="modal-body"></div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">提交</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                     </div>
                 </div>
-                <!-- /.modal-content --> </div>
-            <!-- /.modal --> </div>
+            </div>
+        </div>
     </div>
-</div>
+    </div>
 </template>
 <script>
 import Contentheader from './Content_header'
-// import iCheck from '../../static/plugins/iCheck/icheck.js'
 export default {
     name: 'overtime_pass',
     components: {
@@ -93,6 +88,7 @@ export default {
     },
     data() {
         return {
+            checked:false,
             menuList: [{
                 text: "加班管理",
                 isActive: false
@@ -100,16 +96,40 @@ export default {
                 text: "加班审批",
                 isActive: true
             }],
-            datalist:[{
-                id:'001',name:'李四',date:'2017-6-11',duration:"4"},{
-                id:'002',name:'李四',date:'2017-6-11',duration:"4"},{
-                id:'003',name:'李四',date:'2017-6-11',duration:"4"},{
-                id:'004',name:'李四',date:'2017-6-11',duration:"4"    
+            datalist: [{
+                id: '001',
+                name: '李四',
+                date: '2017-6-11',
+                duration: "4"
+            }, {
+                id: '002',
+                name: '李四',
+                date: '2017-6-11',
+                duration: "4"
+            }, {
+                id: '003',
+                name: '李四',
+                date: '2017-6-11',
+                duration: "4"
+            }, {
+                id: '004',
+                name: '李四',
+                date: '2017-6-11',
+                duration: "4"
             }]
         }
     },
-    mounted(){
+    mounted() {
         this.plugin.getdatePicker();
+        var table = $('#example1').DataTable({
+            "dom": '<"search"f>tp'
+        });
+        $('input[type="checkbox"]').iCheck({
+            checkboxClass: 'icheckbox_square-blue'
+        });
+    },
+    computed(){
+        // console.log(checked)
     }
 
 }

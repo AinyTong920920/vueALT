@@ -6,7 +6,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <form action="" class="form-inline">
+              <form action="" class="form-inline" method="post">
                 <div class="form-group">
                   <label>类别：</label>
                   <select class="form-control">
@@ -16,16 +16,16 @@
                     <option>已审批</option>
                   </select>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="">姓名：</label>
-                  <input type="text" class="form-control" placeholder="姓名"></div>
+                  <input type="text" class="form-control" placeholder="姓名"></div> -->
                 <div class="input-group date">
                   <div class="input-group-addon"> <i class="fa fa-calendar"></i>
                   </div>
                   <input type="text" class="form-control pull-right" name="daterangesingle"></div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <button class="btn btn-primary ">搜索</button>
-                </div>
+                </div> -->
               </form>
             </div>
             <div class="box-body">
@@ -112,6 +112,9 @@ export default {
     },
     mounted(){
         this.plugin.getdatePicker();
+        var table = $('#example1').DataTable({
+            "dom": '<"search"f>tp'
+        });
     }
 
 }

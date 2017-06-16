@@ -2,7 +2,7 @@
   <div class="content-wrapper">
     <section class="content-header">
       <h1>
-        XX管理系统
+        ALT管理系统
         <small>Version 2.0</small>
       </h1>
       <ol class="breadcrumb">

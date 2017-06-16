@@ -11,14 +11,14 @@
                                     <div class="input-group-addon"> <i class="fa fa-calendar"></i>
                                     </div>
                                     <input type="text" class="form-control pull-right" name="daterange" readonly="readonly"></div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="">姓名：</label>
                                     <input type="text" class="form-control" placeholder="姓名"></div>
                                 <div class="form-group">
                                     <button class="btn btn-primary">搜索</button>
-                                </div>
+                                </div> -->
                                 <div class="form-group pull-right">
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal">新增</button>
+                                    <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal" @click.prevent>新增</button>
                                 </div>
                             </form>
                         </div>
@@ -81,8 +81,8 @@
                         <button type="button" class="btn btn-primary" data-dismiss="modal">提交</button>
                     </div>
                 </div>
-                <!-- /.modal-content --> </div>
-            <!-- /.modal --> </div>
+             </div>
+        </div>
     </div>
 </template>
 <script>
@@ -128,7 +128,15 @@ export default {
     },
     mounted(){
         this.plugin.getdatePicker();
+        var table = $('#example1').DataTable({
+            "dom": '<"search search1"f>tp'
+        });
     }
 
 }
 </script>
+<style>
+div.search1 {
+  margin-right: 70px;
+}
+</style>
