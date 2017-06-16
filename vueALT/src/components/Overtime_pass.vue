@@ -34,7 +34,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th><input type="checkbox" id="ckAll" class="flat-blue" v-model="checked">{{ checked }}</th>
+                                        <th><input type="checkbox" id="ckAll" class="flat-blue"></th>
                                         <th>ID</th>
                                         <th>姓名</th>
                                         <th>日期</th>
@@ -44,7 +44,7 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="data in datalist">
-                                        <th><input type="checkbox" class="flat-blue"></th>
+                                        <th><input type="checkbox" class="flat-blue ckbox"></th>
                                         <td>{{data.id}}</td>
                                         <td>{{data.name}}</td>
                                         <td>{{data.date}}</td>
@@ -88,7 +88,6 @@ export default {
     },
     data() {
         return {
-            checked:false,
             menuList: [{
                 text: "加班管理",
                 isActive: false
@@ -127,9 +126,12 @@ export default {
         $('input[type="checkbox"]').iCheck({
             checkboxClass: 'icheckbox_square-blue'
         });
+        $('#ckAll').on('ifChanged',function(e){
+            $('tbody .ckbox').iCheck('toggle');
+        });
     },
-    computed(){
-        // console.log(checked)
+    computed:{
+        
     }
 
 }
