@@ -129,9 +129,14 @@ export default {
         $('#ckAll').on('ifChanged',function(e){
             $('tbody .ckbox').iCheck('toggle');
         });
+
     },
     computed:{
-        
+        /*$('tbody .ckbox').each(function(index,ele){
+            $(this).on('ifUnchecked'){
+                $("ckAll").iCheck('uncheck')
+            })   
+        })*/
     }
 
 }
